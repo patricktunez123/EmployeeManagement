@@ -1,0 +1,19 @@
+{
+  "name": "employeemanagement",
+  "version": "1.0.0",
+  "description": " Employee management system",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/patricktunez123/EmployeeManagement.git"
+  },
+  "author": "Patrick TUNEZERWANE",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/patricktunez123/EmployeeManagement/issues"
+  },
+  "homepage": "https://github.com/patricktunez123/EmployeeManagement#readme"
+}
