@@ -19,7 +19,7 @@ describe('When manager is registering an employee ', () => {
         nationalID: '2782382848238284',
         phoneNumber: '0781429268',
         email: 'divineufitihirwe@gmail.com',
-        dateOfBirth: 01-01-2000,
+        dateOfBirth: '01.01.2000',
         status: 'active',
         position: 'developer'
       })
@@ -39,7 +39,7 @@ describe('When manager is registering an employee ', () => {
         nationalID: '2782382848238284',
         phoneNumber: '0781429268',
         email: 'divineufitihirwe@gmail.com',
-        dateOfBirth: 01-01-2000,
+        dateOfBirth: '01.01.2000',
         status: 'active',
         position: 'developer'
       })
@@ -62,7 +62,7 @@ describe('When manager is registering an employee ', () => {
         nationalID: '238284',
         phoneNumber: '0781429268',
         email: 'divineufitihirwe@gmail.com',
-        dateOfBirth: 01-01-2000,
+        dateOfBirth: '01.01.2000',
         status: 'active',
         position: 'developer'
       })
