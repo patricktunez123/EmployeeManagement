@@ -2,7 +2,7 @@ import express from 'express';
 import dotenv  from 'dotenv';
 import signupRouter from './server/routes/signup';
 import signinRouter from './server/routes/signin';
-import employeeRouter from './server/routes/registerEmployee';
+import employeeRouter from './server/routes/employee';
 
 dotenv.config();
 const app = express();
