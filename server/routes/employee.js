@@ -1,9 +1,9 @@
 import express from 'express';
-import EmployeeController from '../controllers/EmployeeController';
+import StoreEmployeeController from '../controllers/StoreEmployeeController';
 import auth from '../middlewares/auth';
 
 const router = express.Router();
 
-router.post('/', auth, EmployeeController);
+router.post('/', auth, StoreEmployeeController);
 
 export default router;
