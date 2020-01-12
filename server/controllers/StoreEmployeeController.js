@@ -1,9 +1,7 @@
-import ENV from 'dotenv';
 import employeeValidator from '../validations/employeeValidator';
 import Database from '../database/index';
 
 const db = new Database();
-ENV.config();
 
 const EmployeeController = async (req, res) => {
   const { error } = employeeValidator.validation(req.body);
