@@ -1,19 +1,19 @@
 import ENV from 'dotenv';
-import managerValidator from '../validations/managerValidator';
+import employeeValidator from '../validations/employeeValidator';
 import Database from '../database/index';
 
 const db = new Database();
 ENV.config();
 
 const EmployeeController = async (req, res) => {
-  // const { error } = managerValidator.validation(req.body);
+  const { error } = employeeValidator.validation(req.body);
 
-  // if (error) {
-  //   return res.status(400).json({
-  //     status: 400,
-  //     error: error.details[0].message.split('"').join(''),
-  //   });
-  // }
+  if (error) {
+    return res.status(400).json({
+      status: 400,
+      error: error.details[0].message.split('"').join(''),
+    });
+  }
 
   try {
     const checkEmail = req.body.email;
