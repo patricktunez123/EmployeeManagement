@@ -28,25 +28,25 @@ describe('When manager tries to login ', () => {
       .post('/signin')
       .send(mockData.incorrectEmail)
       .end((err, res) => {
-        res.should.have.status(400);
+        res.should.have.status(401);
         res.should.be.an('object');
-        res.should.have.property('status').eql(400);
+        res.should.have.property('status').eql(401);
         res.body.should.have.property('error');
-        res.body.should.have.status(400);
+        res.body.should.have.status(401);
         done();
       });
   });
 
   it('should not be able to login if password is not correct', (done) => {
     chai.request(app)
-      .post('signin')
+      .post('/signin')
       .send(mockData.incorrectPassword)
       .end((err, res) => {
-        res.should.have.status(400);
+        res.should.have.status(401);
         res.should.be.an('object');
-        res.should.have.property('status').eql(400);
+        res.should.have.property('status').eql(401);
         res.body.should.have.property('error');
-        res.body.should.have.status(400);
+        res.body.should.have.status(401);
         done();
       });
   });
@@ -56,11 +56,11 @@ describe('When manager tries to login ', () => {
       .post('/signin')
       .send(mockData.incorrectEmailAndPwd)
       .end((err, res) => {
-        res.should.have.status(400);
+        res.should.have.status(401);
         res.should.be.an('object');
-        res.should.have.property('status').eql(400);
+        res.should.have.property('status').eql(401);
         res.body.should.have.property('error');
-        res.body.should.have.status(400);
+        res.body.should.have.status(401);
         done();
       });
   });

@@ -58,10 +58,10 @@ describe('when manager is trying to update an employee ', () => {
       .put('/employees/800')
       .set('x-auth-token', token)
       .send({
-        employeeName: '',
-        nationalID: '2782382848238284',
-        phoneNumber: '0781429268',
-        email: 'divineufitihirwe@gmail.com',
+        employeeName: 'Divine',
+        nationalID: '2782382848238280',
+        phoneNumber: '0781429260',
+        email: 'divineufitihirwe10@gmail.com',
         dateOfBirth: '01.01.200',
         status: 'active',
         position: 'developer'
@@ -77,7 +77,7 @@ describe('when manager is trying to update an employee ', () => {
 
   it('should  be able to update if an employee is found and a request is from manager ', (done) => {
     chai.request(app)
-      .put('/employees/1')
+      .put('/employees/2')
       .set('x-auth-token', token)
       .send({
         employeeName: 'Divine Manzi Updated',
@@ -93,7 +93,7 @@ describe('when manager is trying to update an employee ', () => {
         res.should.be.an('object');
         res.body.should.have.property('status').eql(200);
         res.body.should.have.property('message');
-        res.body.should.have.property('data');
+        res.body.should.have.property('UserInfo');
         done();
       });
   });
