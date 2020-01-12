@@ -4,10 +4,12 @@
   "description": " Employee management system",
   "main": "index.js",
   "scripts": {
-    "test": "nyc --reporter=html --reporter=text mocha --require babel-core/register --require babel-polyfill --exit test/**/*.js",
+    "test": "npm run dbinit && nyc --reporter=html --reporter=text mocha --require babel-core/register --require babel-polyfill --exit test/**/*.js",
+    "devTest": "nyc --reporter=html --reporter=text mocha --require babel-core/register --require babel-polyfill --exit test/**/*.js",
+    "dbinit": "node --require babel-core/register --require babel-polyfill ./server/database/db_init.js",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "start": "node --require babel-core/register --require babel-polyfill server.js",
-    "devStart": "nodemon --require babel-core/register --require babel-polyfill server.js"
+    "start": "npm run dbinit && node --require babel-core/register --require babel-polyfill server.js",
+    "devStart": "npm run dbinit && nodemon --require babel-core/register --require babel-polyfill server.js"
   },
   "repository": {
     "type": "git",
@@ -20,7 +22,6 @@
   },
   "homepage": "https://github.com/patricktunez123/EmployeeManagement#readme",
   "dependencies": {
-    "@hapi/joi": "^17.0.2",
     "babel-core": "^6.26.3",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
@@ -28,8 +29,10 @@
     "bcrypt": "^3.0.7",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "joi": "^14.3.1",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.15",
+    "make-runnable": "^1.3.6",
     "moment": "^2.24.0",
     "nodemon": "^2.0.2",
     "pg": "^7.17.0",
