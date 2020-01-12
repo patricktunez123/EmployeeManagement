@@ -8,21 +8,6 @@ chai.use(http);
 chai.should();
 
 describe('When manager tries to login ', () => {
-  it('should be able to login', (done) => {
-    chai.request(app)
-      .post('/signin')
-      .send(mockData.canLogin)
-      .end((err, res) => {
-        res.should.have.status(200);
-        res.should.be.an('object');
-        res.should.have.property('status').eql(200);
-        res.body.should.have.status(200);
-        res.body.should.have.property('message');
-        res.body.should.have.property('data');
-        done();
-      });
-  });
-
   it('should not be able to login if the email is incorrect', (done) => {
     chai.request(app)
       .post('/signin')
