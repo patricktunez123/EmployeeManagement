@@ -53,13 +53,11 @@ Employee management system will help the manager to be able to register and do m
 
 - Heroku
 
-### Heroku link
-
-
-
 ### API Documentation
 
+> Link to Swagger docs on heroku
 
+[API Documentation on heroku](https://employee-management-awesomity.herokuapp.com/docs/)
 ---
 
 ## How to set up and test this app
@@ -84,11 +82,7 @@ After successfully installed all packages the next step is to set up environment
 
 - PORT=PUT ANY PORT OF YOUR CHOICE HERE
 - JWT_KEY=jwtKey
-- HOST=localhost
-- USER=PUT USERNAME OF YOUR DB HARE (Example: postgres)
-- PASSWORD=PUT PASSWORD TO YOUR DB HERE
-- TESTDB=employee_management
-- DB_PORT=PUT DATABASE PORT HERE(Example: 5432)
+- DATABASE_URL=postgres://someuser:somepassword@somehost:5432/somedatabase
 - NODE_ENV='development'
 
 ## Create Database
@@ -103,10 +97,6 @@ Open postges that we have installed earlier (Checkout Prerequisites above), and 
 
 After runnig the server, open browser and type 'http://localhost:5000/docs/' in the url.
 NOTE: Note that i have used 5000 after http://localhost: , this is the PORT that my server is running on so you too have to use the PORT that you have specified in .env file, remember?
-
-## Link to Swagger docs on heroku
-
-[API Documentation on heroku](https://employee-management-awesomity.herokuapp.com/docs/)
 
 ## Run tests
 
