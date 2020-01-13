@@ -290,7 +290,6 @@
         "email":"pazo20@gmail.com",
         "dateOfBirth":"01.01.1999",
         "status":"active",
-        "position":"manager",
         "password":"@12345@23"   
       },
       "type": "object",
