@@ -82,11 +82,7 @@ After successfully installed all packages the next step is to set up environment
 
 - PORT=PUT ANY PORT OF YOUR CHOICE HERE
 - JWT_KEY=jwtKey
-- HOST=localhost
-- USER=PUT USERNAME OF YOUR DB HARE (Example: postgres)
-- PASSWORD=PUT PASSWORD TO YOUR DB HERE
-- TESTDB=employee_management
-- DB_PORT=PUT DATABASE PORT HERE(Example: 5432)
+- DATABASE_URL=postgres://someuser:somepassword@somehost:5432/somedatabase
 - NODE_ENV='development'
 
 ## Create Database
