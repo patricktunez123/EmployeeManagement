@@ -29,6 +29,7 @@ const SignupController = async (req, res) => {
     }
     const salt = await bcrypt.genSalt(10);
     const password = await bcrypt.hash(req.body.password, salt);
+    const position = 'Manager'
     const insert = 'INSERT INTO managers (employeeName, nationalID, phoneNumber, email, dateOfBirth, status, position, password) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) returning *';
     const newUser = [
       req.body.employeeName,
@@ -37,7 +38,7 @@ const SignupController = async (req, res) => {
       req.body.email,
       req.body.dateOfBirth,
       req.body.status,
-      req.body.position,
+      position,
       password,
     ];
     const { rows } = await db.query(insert, newUser);
