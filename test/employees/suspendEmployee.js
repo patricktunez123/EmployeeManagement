@@ -24,23 +24,6 @@ describe('when manager is trying to suspend an employee ', () => {
   });
   const token = jwt.sign(mockData, process.env.JWT_KEY, { expiresIn: '365d' });
 
-  it('should not be able to suspend if there is an error in selection', (done) => {
-    chai.request(app)
-      .put('/employees/1/suspend')
-      .set('x-auth-token', token)
-      .send({
-        status: '',
-      })
-      .end((err, res) => {
-        res.should.have.status(400);
-        res.should.be.an('object');
-        res.body.should.have.property('status').eql(400);
-        res.body.should.have.property('error');
-        done();
-      });
-  });
-
-
   it('should not be able to suspend if an employee is not available', (done) => {
     chai.request(app)
       .put('/employees/800/suspend')
@@ -59,7 +42,7 @@ describe('when manager is trying to suspend an employee ', () => {
 
   it('should  be able to suspend if an employee is found and a request is from manager ', (done) => {
     chai.request(app)
-      .put('/employees/1/suspend')
+      .put('/employees/2/suspend')
       .set('x-auth-token', token)
       .send({
         status: 'inactive',
@@ -69,7 +52,7 @@ describe('when manager is trying to suspend an employee ', () => {
         res.should.be.an('object');
         res.body.should.have.property('status').eql(200);
         res.body.should.have.property('message');
-        res.body.should.have.property('data');
+        res.body.should.have.property('UserInfo');
         done();
       });
   });

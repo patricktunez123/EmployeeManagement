@@ -4,8 +4,8 @@
   "description": " Employee management system",
   "main": "index.js",
   "scripts": {
-    "test": "npm run dbinit && nyc --reporter=html --reporter=text mocha --require babel-core/register --require babel-polyfill --exit test/**/*.js",
-    "devTest": "nyc --reporter=html --reporter=text mocha --require babel-core/register --require babel-polyfill --exit test/**/*.js",
+    "test": "npm run dbinit && npm run seed && nyc --reporter=html --reporter=text mocha --require babel-core/register --require babel-polyfill --exit test/**/*.js",
+    "seed": "node --require babel-core/register --require babel-polyfill ./server/database/seeds/index.js",
     "dbinit": "node --require babel-core/register --require babel-polyfill ./server/database/db_init.js",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "start": "npm run dbinit && node --require babel-core/register --require babel-polyfill server.js",
