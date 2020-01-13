@@ -1,0 +1,466 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0",
+    "title": "Employee management REST API, created by Patrick TUNEZERWANE",
+    "description": "",
+    "contact": {}
+  },
+  
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/signup": {
+      "post": {
+        "description": "Manager creates account here",
+        "summary": "Create account",
+        "tags": [
+          "TaskForceApplicationChallenge"
+        ],
+        "operationId": "signup",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/signup"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/signin": {
+      "post": {
+        "description": "Manager can login here",
+        "summary": "Login",
+        "tags": [
+          "TaskForceApplicationChallenge"
+        ],
+        "operationId": "signin",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/signin"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/employees": {
+      "post": {
+        "description": "Register an employee",
+        "summary": "Register an employee",
+        "tags": [
+          "TaskForceApplicationChallenge"
+        ],
+        "operationId": "employees",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "x-auth-token",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/employees"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/employees/search": {
+      "post": {
+        "description": "Search for an employee by name or email or phone or position",
+        "summary": "Search for an employee",
+        "tags": [
+          "TaskForceApplicationChallenge"
+        ],
+        "operationId": "search",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "x-auth-token",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/search"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/employees/1": {
+      "delete": {
+        "description": "Delete an employee",
+        "summary": "Delete an employee",
+        "tags": [
+          "TaskForceApplicationChallenge"
+        ],
+        "operationId": "deleteEmp",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "x-auth-token",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      },
+      "put": {
+        "description": "Edit an employee",
+        "summary": "Edit an employee",
+        "tags": [
+          "TaskForceApplicationChallenge"
+        ],
+        "operationId": "putEmp",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "x-auth-token",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/putEmp"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/employees/1/activate": {
+      "put": {
+        "description": "Activate an employee",
+        "summary": "Activate an employee",
+        "tags": [
+          "TaskForceApplicationChallenge"
+        ],
+        "operationId": "activateEmp",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "x-auth-token",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/employees/1/suspend": {
+      "put": {
+        "description": "Suspend an employee",
+        "summary": "Suspend an employee",
+        "tags": [
+          "TaskForceApplicationChallenge"
+        ],
+        "operationId": "suspendEmp",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "x-auth-token",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    }  
+  },
+  "definitions": {
+    "signup": {
+      "title": "Create account",
+      "example": {
+        "employeeName" : "Patrick Tunezerwane",
+        "nationalID": "1199934678924362",
+        "phoneNumber":"0781429268",
+        "email":"pazo20@gmail.com",
+        "dateOfBirth":"01.01.1999",
+        "status":"active",
+        "position":"manager",
+        "password":"@12345@23"   
+      },
+      "type": "object",
+      "properties": {
+        "employeeName": {
+          "type": "string"
+        },
+        "nationalID": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "dateOfBirth": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "position": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "employeeName",
+        "nationalID",
+        "phoneNumber",
+        "email",
+        "dateOfBirth",
+        "status",
+        "position",
+        "password"
+      ]
+    },
+    "signin": {
+      "title": "Login",
+      "example": {
+        "email": "pazo20@gmail.com",
+        "password": "@12345@23"
+      },
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "email",
+        "password"
+      ]
+    },
+    "employees": {
+      "title": "Register an employee",
+      "example": {
+        "employeeName" : "Patrick Tunez 3",
+        "nationalID": "3472472747274727",
+        "phoneNumber":"0781429268",
+        "email":"nn@gmail.com",
+        "dateOfBirth":"01.01.1999",
+        "status":"inactive",
+        "position":"designer"
+      },
+      "type": "object",
+      "properties": {
+        "employeeName": {
+          "type": "string"
+        },
+        "nationalID": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "dateOfBirth": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "position": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "employeeName",
+        "nationalID",
+        "phoneNumber",
+        "email",
+        "dateOfBirth",
+        "status",
+        "position"
+      ]
+    },
+    "search": {
+      "title": "search",
+      "example": {
+        "position":"designer"
+      },
+      "type": "object",
+      "properties": {
+        "position": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "position"
+      ]
+    },
+    "putEmp": {
+      "title": "Edit an employee",
+      "example": {
+        "employeeName" : "Jane Doe",
+        "nationalID": "1199938673848394",
+        "phoneNumber":"0782346798",
+        "email":"janedoneo@gmail.com",
+        "dateOfBirth":"01.01.1999",
+        "status":"inactive",
+        "position":"developer"
+      },
+      "type": "object",
+      "properties": {
+        "employeeName": {
+          "type": "string"
+        },
+        "nationalID": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "dateOfBirth": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "position": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "employeeName",
+        "nationalID",
+        "phoneNumber",
+        "email",
+        "dateOfBirth",
+        "status",
+        "position"
+      ]
+    }
+  },
+  "tags": [
+    {
+      "name": "TaskForceApplicationChallenge",
+      "description": ""
+    }
+  ]
+}
