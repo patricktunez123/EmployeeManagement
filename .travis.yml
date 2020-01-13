@@ -4,6 +4,8 @@ node_js:
 
 services:
   - postgresql
+before_install:
+  - psql -c 'create database employee_management' -U postgres
 
 cache:
  directories:
