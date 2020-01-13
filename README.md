@@ -1,3 +1,5 @@
+[![Maintainability](https://api.codeclimate.com/v1/badges/3a529494220c941cf36d/maintainability)](https://codeclimate.com/github/patricktunez123/EmployeeManagement/maintainability) [![Coverage Status](https://coveralls.io/repos/github/patricktunez123/EmployeeManagement/badge.svg)](https://coveralls.io/github/patricktunez123/EmployeeManagement) [![Build Status](https://travis-ci.org/patricktunez123/EmployeeManagement.svg?branch=develop)](https://travis-ci.org/patricktunez123/EmployeeManagement)
+
 # EmployeeManagement
 Employee management system will help the manager to be able to register and do modifications on the employees records
 ------------------------------------------------------------------------------
@@ -80,14 +82,14 @@ It will install the node_modules which will help you run this project on your lo
 
 After successfully installed all packages the next step is to set up environment variables, in root folder create a file and call it .env and open this file in any text editor of your choice then paste the following into it (Do not forget to edit it accordingly):
 
-PORT=PUT ANY PORT OF YOUR CHOICE HERE
-JWT_KEY=jwtKey
-HOST=localhost
-USER=PUT USERNAME OF YOUR DB HARE (Example: postgres)
-PASSWORD=PUT PASSWORD TO YOUR DB HERE
-TESTDB=employee_management
-DB_PORT=PUT DATABASE PORT HERE(Example: 5432)
-NODE_ENV='development'
+- PORT=PUT ANY PORT OF YOUR CHOICE HERE
+- JWT_KEY=jwtKey
+- HOST=localhost
+- USER=PUT USERNAME OF YOUR DB HARE (Example: postgres)
+- PASSWORD=PUT PASSWORD TO YOUR DB HERE
+- TESTDB=employee_management
+- DB_PORT=PUT DATABASE PORT HERE(Example: 5432)
+- NODE_ENV='development'
 
 ## Create Database
 
