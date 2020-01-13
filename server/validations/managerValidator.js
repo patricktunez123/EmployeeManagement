@@ -10,7 +10,6 @@ const registrationValidator = {
       email: Joi.string().email().required().trim(),
       dateOfBirth: Joi.date().required(),
       status: Joi.string().required(),
-      position: Joi.string().required(),
       password: Joi.string().min(2).max(10).required()
         .trim(),
     };
