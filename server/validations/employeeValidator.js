@@ -6,9 +6,9 @@ const registrationValidator = {
       employeeName: Joi.string().min(2).max(20).required()
         .trim(),
       nationalID: Joi.string().min(16).max(16).required(),
-      phoneNumber: Joi.string().min(10).max(10).required(),
+      phoneNumber: Joi.string().min(10).max(13).required(),
       email: Joi.string().email().required().trim(),
-      dateOfBirth: Joi.string().required(),
+      dateOfBirth: Joi.date().required(),
       status: Joi.string().required(),
       position: Joi.string().required()
     };
