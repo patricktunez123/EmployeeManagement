@@ -1,5 +1,6 @@
 import bcrypt from 'bcrypt';
 import ENV from 'dotenv';
+import moment from 'moment';
 import managerValidator from '../validations/managerValidator';
 import tokenHelper from '../helpers/tokenHelper';
 import Database from '../database/index';
@@ -33,7 +34,8 @@ const SignupController = async (req, res) => {
     const salt = await bcrypt.genSalt(10);
     const password = await bcrypt.hash(req.body.password, salt);
     const position = 'Manager'
-    const insert = 'INSERT INTO managers (employeeName, nationalID, phoneNumber, email, dateOfBirth, status, position, password) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) returning *';
+    const created_on = moment().format('LL');
+    const insert = 'INSERT INTO managers (employeeName, nationalID, phoneNumber, email, dateOfBirth, status, position, password, created_on) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) returning *';
     const newUser = [
       req.body.employeeName,
       req.body.nationalID,
@@ -43,6 +45,7 @@ const SignupController = async (req, res) => {
       req.body.status,
       position,
       password,
+      created_on
     ];
     const { rows } = await db.query(insert, newUser);
     if (!rows) return res.status(500).json('Oops! Something went wrong');
