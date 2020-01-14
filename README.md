@@ -75,6 +75,7 @@ Employee management system will help the manager to be able to register and do m
 ## Features
 
 - A manager is able to create an employee bypassing these details to the API (employee name, national id, phone number, email, date of birth, status(active, inactive) and position(manager, developer, designer, etc...)
+- A manager must login to register or modify an employee.
 - A manager is able to edit employee records.
 - A manager is able to suspend an employee.
 - A manager is able to activate an employee.
