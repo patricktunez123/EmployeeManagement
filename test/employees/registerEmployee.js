@@ -74,4 +74,224 @@ describe('When manager is registering an employee ', () => {
         done();
       });
   });
+
+  it('should not be able to register if employee name is not provided', (done) => {
+    chai.request(app)
+      .post('/employees')
+      .set('x-auth-token', token)
+      .send({
+        employeeName: '',
+        nationalID: '238284',
+        phoneNumber: '0781429268',
+        email: 'divineufitihirwe@gmail.com',
+        dateOfBirth: '01.01.2000',
+        status: 'active',
+        position: 'developer'
+      })
+      .end((err, res) => {
+        res.should.have.status(400);
+        res.should.be.an('object');
+        res.body.should.have.property('status').eql(400);
+        res.body.should.have.property('error');
+        done();
+      });
+  });
+
+  it('should not be able to register if NID is not provided', (done) => {
+    chai.request(app)
+      .post('/employees')
+      .set('x-auth-token', token)
+      .send({
+        employeeName: 'Divine Manzi',
+        nationalID: '',
+        phoneNumber: '0781429268',
+        email: 'divineufitihirwe@gmail.com',
+        dateOfBirth: '01.01.2000',
+        status: 'active',
+        position: 'developer'
+      })
+      .end((err, res) => {
+        res.should.have.status(400);
+        res.should.be.an('object');
+        res.body.should.have.property('status').eql(400);
+        res.body.should.have.property('error');
+        done();
+      });
+  });
+
+  it('should not be able to register if Phone is not provided', (done) => {
+    chai.request(app)
+      .post('/employees')
+      .set('x-auth-token', token)
+      .send({
+        employeeName: 'Divine Manzi',
+        nationalID: '238284',
+        phoneNumber: '',
+        email: 'divineufitihirwe@gmail.com',
+        dateOfBirth: '01.01.2000',
+        status: 'active',
+        position: 'developer'
+      })
+      .end((err, res) => {
+        res.should.have.status(400);
+        res.should.be.an('object');
+        res.body.should.have.property('status').eql(400);
+        res.body.should.have.property('error');
+        done();
+      });
+  });
+
+  it('should not be able to register if email is not provided', (done) => {
+    chai.request(app)
+      .post('/employees')
+      .set('x-auth-token', token)
+      .send({
+        employeeName: 'Divine Manzi',
+        nationalID: '238284',
+        phoneNumber: '0781429268',
+        email: '',
+        dateOfBirth: '01.01.2000',
+        status: 'active',
+        position: 'developer'
+      })
+      .end((err, res) => {
+        res.should.have.status(400);
+        res.should.be.an('object');
+        res.body.should.have.property('status').eql(400);
+        res.body.should.have.property('error');
+        done();
+      });
+  });
+
+  it('should not be able to register if DOB is not provided', (done) => {
+    chai.request(app)
+      .post('/employees')
+      .set('x-auth-token', token)
+      .send({
+        employeeName: 'Divine Manzi',
+        nationalID: '238284',
+        phoneNumber: '0781429268',
+        email: 'divineufitihirwe@gmail.com',
+        dateOfBirth: '',
+        status: 'active',
+        position: 'developer'
+      })
+      .end((err, res) => {
+        res.should.have.status(400);
+        res.should.be.an('object');
+        res.body.should.have.property('status').eql(400);
+        res.body.should.have.property('error');
+        done();
+      });
+  });
+
+  it('should not be able to register if status is not provided', (done) => {
+    chai.request(app)
+      .post('/employees')
+      .set('x-auth-token', token)
+      .send({
+        employeeName: 'Divine Manzi',
+        nationalID: '238284',
+        phoneNumber: '0781429268',
+        email: 'divineufitihirwe@gmail.com',
+        dateOfBirth: '01.01.2000',
+        status: '',
+        position: 'developer'
+      })
+      .end((err, res) => {
+        res.should.have.status(400);
+        res.should.be.an('object');
+        res.body.should.have.property('status').eql(400);
+        res.body.should.have.property('error');
+        done();
+      });
+  });
+
+  it('should not be able to register if position is not provided', (done) => {
+    chai.request(app)
+      .post('/employees')
+      .set('x-auth-token', token)
+      .send({
+        employeeName: 'Divine Manzi',
+        nationalID: '238284',
+        phoneNumber: '0781429268',
+        email: 'divineufitihirwe@gmail.com',
+        dateOfBirth: '01.01.2000',
+        status: 'active',
+        position: ''
+      })
+      .end((err, res) => {
+        res.should.have.status(400);
+        res.should.be.an('object');
+        res.body.should.have.property('status').eql(400);
+        res.body.should.have.property('error');
+        done();
+      });
+  });
+
+  it('should not be able to register if email provided is already taken', (done) => {
+    chai.request(app)
+      .post('/employees')
+      .set('x-auth-token', token)
+      .send({
+        employeeName: 'Divine Manzi',
+        nationalID: '9994449494020202',
+        phoneNumber: '0781429268',
+        email: 'patric3@gmail.com',
+        dateOfBirth: '01.01.2000',
+        status: 'active',
+        position: 'developer'
+      })
+      .end((err, res) => {
+        res.should.have.status(409);
+        res.should.be.an('object');
+        res.body.should.have.property('status').eql(409);
+        res.body.should.have.property('error');
+        done();
+      });
+  });
+
+  it('should not be able to register if phone provided is already taken', (done) => {
+    chai.request(app)
+      .post('/employees')
+      .set('x-auth-token', token)
+      .send({
+        employeeName: 'Divine Manzi',
+        nationalID: '0001200889999022',
+        phoneNumber: '0781429268',
+        email: 'divineufitihirwe@gmail.com',
+        dateOfBirth: '01.01.2000',
+        status: 'active',
+        position: 'developer'
+      })
+      .end((err, res) => {
+        res.should.have.status(409);
+        res.should.be.an('object');
+        res.body.should.have.property('status').eql(409);
+        res.body.should.have.property('error');
+        done();
+      });
+  });
+
+  it('should not be able to register if NID provided is already taken', (done) => {
+    chai.request(app)
+      .post('/employees')
+      .set('x-auth-token', token)
+      .send({
+        employeeName: 'Divine Manzi',
+        nationalID: '3472472747274727',
+        phoneNumber: '0781429268',
+        email: 'divineufitihirwe@gmail.com',
+        dateOfBirth: '01.01.2000',
+        status: 'active',
+        position: 'developer'
+      })
+      .end((err, res) => {
+        res.should.have.status(409);
+        res.should.be.an('object');
+        res.body.should.have.property('status').eql(409);
+        res.body.should.have.property('error');
+        done();
+      });
+  });
 });

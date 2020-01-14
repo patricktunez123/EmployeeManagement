@@ -35,6 +35,21 @@ describe('When manager wants to search for an employee ', () => {
         res.body.should.have.property('status').eql(404);
         done();
       });
+  });
+  
+  it('should not be able to search for an employee if no query given ', (done) => {
+    chai.request(app)
+      .post('/employees/search')
+      .set('x-auth-token', token)
+      .send({
+        phoneNumber: '',
+      })
+      .end((err, res) => {
+        res.should.have.status(404);
+        res.should.be.an('object');
+        res.body.should.have.property('status').eql(404);
+        done();
+      });
   }); 
 
   it('should be able to search for an employee if available and token was given', (done) => {
