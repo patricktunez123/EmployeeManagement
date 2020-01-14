@@ -15,12 +15,15 @@ const EmployeeController = async (req, res) => {
 
   try {
     const checkEmail = req.body.email;
-    const { rowCount } = await db.query('SELECT email FROM employees WHERE email = $1', [checkEmail]);
+    const checkNationalID = req.body.nationalID;
+    const checkPhoneNumber = req.body.phoneNumber;
+
+    const { rowCount } = await db.query('SELECT email, nationalID, phoneNumber FROM employees WHERE email = $1 OR nationalID = $2 OR phoneNumber = $3', [checkEmail, checkNationalID, checkPhoneNumber]);
 
     if (rowCount) {
       return res.status(409).json({
         status: 409,
-        error: ' An email provided is in use',
+        error: 'Either email, NID or Phone provided is in use, pls check again',
       });
     }
 
