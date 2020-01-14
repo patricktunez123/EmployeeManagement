@@ -1,6 +1,7 @@
 import moment from 'moment';
 import employeeValidator from '../validations/employeeValidator';
 import Database from '../database/index';
+import notification from '../notifications/notify';
 
 const db = new Database();
 
@@ -43,13 +44,18 @@ const db = new Database();
       ];
       const { rows } = await db.query(insert, newUser);
       if (!rows) return res.status(500).json('Oops! Something went wrong');
-      return res.status(201).json({
-        status: 201,
-        message: 'An employee was registered successfully',
-        data: {
-          EmployeeInfo: rows[0],
-        },
-      });
+      const message = 'You have been registered at Awesomity Lab as their employee, congz!';
+      if (rows) {
+        notification.Notify(rows[0], message);
+        return res.status(201).json({
+          status: 201,
+          message: 'An employee was registered successfully',
+          data: {
+            EmployeeInfo: rows[0],
+          },
+        });
+      }
+      
     } catch (err) {
       res.status(500).json({
         status: 500,
