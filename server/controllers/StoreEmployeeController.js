@@ -1,3 +1,4 @@
+import moment from 'moment';
 import employeeValidator from '../validations/employeeValidator';
 import Database from '../database/index';
 
@@ -27,7 +28,8 @@ const EmployeeController = async (req, res) => {
       });
     }
 
-    const insert = 'INSERT INTO employees (employeeName, nationalID, phoneNumber, email, dateOfBirth, status, position) VALUES ($1, $2, $3, $4, $5, $6, $7) returning *';
+    const created_on = moment().format('LL');
+    const insert = 'INSERT INTO employees (employeeName, nationalID, phoneNumber, email, dateOfBirth, status, position, created_on) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) returning *';
     const newUser = [
       req.body.employeeName,
       req.body.nationalID,
@@ -36,6 +38,7 @@ const EmployeeController = async (req, res) => {
       req.body.dateOfBirth,
       req.body.status,
       req.body.position,
+      created_on
     ];
     const { rows } = await db.query(insert, newUser);
     if (!rows) return res.status(500).json('Oops! Something went wrong');
