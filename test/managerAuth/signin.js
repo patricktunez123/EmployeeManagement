@@ -49,4 +49,32 @@ describe('When manager tries to login ', () => {
         done();
       });
   });
+
+  it('should not be able to login if does not provide email', (done) => {
+    chai.request(app)
+      .post('/signin')
+      .send(mockData.emptyFields)
+      .end((err, res) => {
+        res.should.have.status(401);
+        res.should.be.an('object');
+        res.should.have.property('status').eql(401);
+        res.body.should.have.property('error');
+        res.body.should.have.status(401);
+        done();
+      });
+  });
+
+  it('should not be able to login if does not provide password', (done) => {
+    chai.request(app)
+      .post('/signin')
+      .send(mockData.emptyFields)
+      .end((err, res) => {
+        res.should.have.status(401);
+        res.should.be.an('object');
+        res.should.have.property('status').eql(401);
+        res.body.should.have.property('error');
+        res.body.should.have.status(401);
+        done();
+      });
+  });
 });

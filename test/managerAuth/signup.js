@@ -47,4 +47,28 @@ describe('When manager is signing up', () => {
         done();
       });
   });
+
+  it('should not be saved if an phone number has been already used', (done) => {
+    chai.request(app)
+      .post('/signup')
+      .send(mockData.phoneInUse).end((err, res) => {
+        res.should.have.status(409);
+        res.should.be.an('object');
+        res.should.have.property('status').eql(409);
+        res.should.have.property('error');
+        done();
+      });
+  });
+
+  it('should not be saved if an NID has been already used', (done) => {
+    chai.request(app)
+      .post('/signup')
+      .send(mockData.NIDInUse).end((err, res) => {
+        res.should.have.status(409);
+        res.should.be.an('object');
+        res.should.have.property('status').eql(409);
+        res.should.have.property('error');
+        done();
+      });
+  });
 });

@@ -49,6 +49,18 @@ Employee management system will help the manager to be able to register and do m
 
 - coveralls
 
+### Linting Library
+
+- ESLint
+
+### Style Guide
+
+- Airbnb
+
+### Database
+
+- Postgres
+
 ### Deployment
 
 - Heroku
@@ -59,6 +71,24 @@ Employee management system will help the manager to be able to register and do m
 
 [API Documentation on heroku](https://employee-management-awesomity.herokuapp.com/docs/)
 ---
+
+## Features
+
+- A manager is able to create an employee bypassing these details to the API (employee name, national id, phone number, email, date of birth, status(active, inactive) and position(manager, developer, designer, etc...)
+- A manager must login to register or modify an employee.
+- A manager is able to edit employee records.
+- A manager is able to suspend an employee.
+- A manager is able to activate an employee.
+- A manager is able to delete an employee.
+- A manager is able to create an account by providing his/her employee name, national id number, phone number, email, date of birth, status and position; the position property is generated automatically as Manager upon signup.
+- A manager is able to login and receive a  token.
+- A manager is able to search for an employee based on his position, name, email or phone number.
+- API Swagger Documentation
+- The manager’s password is encrypted
+- Emails are validated
+- The national id is 16 max/min numbers
+- National Id, Email and phone are unique
+- The system throws exceptions if any error occurs.
 
 ## How to set up and test this app
 
@@ -93,6 +123,8 @@ Open postges that we have installed earlier (Checkout Prerequisites above), and 
 
 - npm run devStart
 
+cd into project directory and by using terminal, run the above command (npm run devStart) it will start your server and then you will be able to test endpoints in Postman
+
 ## Test Swagger Docs locally
 
 After runnig the server, open browser and type 'http://localhost:5000/docs/' in the url.
@@ -102,6 +134,8 @@ NOTE: Note that i have used 5000 after http://localhost: , this is the PORT that
 
 - npm run test
 
+cd into project directory and run the above command (npm run test), it will run tests
+
 ## Author
 
 - Tunezerwane Patrick <tunezepatrick@gmail.com>
@@ -109,4 +143,24 @@ NOTE: Note that i have used 5000 after http://localhost: , this is the PORT that
 ---
 
 ## License & copyright
-Copyright (c) Tunezerwane Patrick
+MIT License
+
+Copyright (c) 2020 Patrick TUNEZERWANE
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
