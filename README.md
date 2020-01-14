@@ -72,6 +72,16 @@ Employee management system will help the manager to be able to register and do m
 [API Documentation on heroku](https://employee-management-awesomity.herokuapp.com/docs/)
 ---
 
+### How to test API endpoints with swagger
+
+- Click [here](https://employee-management-awesomity.herokuapp.com/docs/)
+- Click [Signup](https://employee-management-awesomity.herokuapp.com/docs/#/TaskForceApplicationChallenge/signup) to create acount, in right corner you can see a try it out button; click it and then click excute
+- Click [Signin](https://employee-management-awesomity.herokuapp.com/docs/#/TaskForceApplicationChallenge/signin) to login, in right corner you can see a try it out button; click it and then click excute.
+
+> Repeat the same steps for the rest of other endpoints and enjoy it!
+
+> NOTE: To edit, delete, activate, suspend, search and register an employee manager needs to provide a token so after login you need to copy a token and paste it in 'x-auth-token' field.
+
 ## Features
 
 - A manager is able to create an employee bypassing these details to the API (employee name, national id, phone number, email, date of birth, status(active, inactive) and position(manager, developer, designer, etc...)
