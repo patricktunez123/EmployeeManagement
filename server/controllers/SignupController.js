@@ -19,12 +19,15 @@ const SignupController = async (req, res) => {
 
   try {
     const checkEmail = req.body.email;
-    const { rowCount } = await db.query('SELECT email FROM managers WHERE email = $1', [checkEmail]);
+    const checkNationalID = req.body.nationalID;
+    const checkPhoneNumber = req.body.phoneNumber;
+
+    const { rowCount } = await db.query('SELECT email, nationalID, phoneNumber FROM managers WHERE email = $1 OR nationalID = $2 OR phoneNumber = $3', [checkEmail, checkNationalID, checkPhoneNumber]);
 
     if (rowCount) {
       return res.status(409).json({
         status: 409,
-        error: ' Your email has already been used. Pls try another email ',
+        error: ' Either email, NID or Phone provided is already taken, pls check again',
       });
     }
     const salt = await bcrypt.genSalt(10);
