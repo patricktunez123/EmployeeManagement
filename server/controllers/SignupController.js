@@ -33,7 +33,7 @@ const SignupController = async (req, res) => {
     }
     const salt = await bcrypt.genSalt(10);
     const password = await bcrypt.hash(req.body.password, salt);
-    const position = 'Manager'
+    const position = 'Manager';
     const created_on = moment().format('LL');
     const insert = 'INSERT INTO managers (employeeName, nationalID, phoneNumber, email, dateOfBirth, status, position, password, created_on) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) returning *';
     const newUser = [
