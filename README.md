@@ -85,7 +85,7 @@ Employee management system will help the manager to be able to register and do m
 ## Features
 
 - A manager is able to create an employee bypassing these details to the API (employee name, national id, phone number, email, date of birth, status(active, inactive) and position(manager, developer, designer, etc...)
-- After creating the employee, the system sends a communication email to the registered employees informing, they joined the company with the company name.
+- After registering the employees, the system sends a communication email to the registered employees informing, they joined the company with the company name.
 - A manager must login to register or modify an employee.
 - A manager is able to edit employee records.
 - A manager is able to suspend an employee.
@@ -100,6 +100,16 @@ Employee management system will help the manager to be able to register and do m
 - The national id is 16 max/min numbers
 - National Id, Email and phone are unique
 - The system throws exceptions if any error occurs.
+
+## Features that have not done yet
+
+- A manager should be able to confirm his email after registration.
+- A manager should be able to reset the password by providing an email address to which a password reset link will be sent, afterward, he should be able to log in with the new password.
+- A manager should be able to upload an excel sheet containing a list of his/her employees (employee name, national id number, phone number, email, date of birth, status and position).
+- The system should record all the manager’s activities (login, logout, password reset, profile update etc…) in order to comply with external audit requirements.
+- Phone number should be a Rwandan number.
+- An employee who is below 18 years of age should not be registered.
+
 
 ## How to set up and test this app
 
