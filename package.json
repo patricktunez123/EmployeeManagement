@@ -8,7 +8,7 @@
     "seed": "node --require babel-core/register --require babel-polyfill ./server/database/seeds/index.js",
     "dbinit": "node --require babel-core/register --require babel-polyfill ./server/database/db_init.js",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "start": "npm run dbinit && node --require babel-core/register --require babel-polyfill server.js",
+    "start": "npm run dbinit && npm run seed && node --require babel-core/register --require babel-polyfill server.js",
     "devStart": "npm run dbinit && nodemon --require babel-core/register --require babel-polyfill server.js"
   },
   "repository": {
