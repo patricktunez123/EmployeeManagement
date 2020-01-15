@@ -213,8 +213,8 @@ describe('when manager is trying to update an employee ', () => {
       .set('x-auth-token', token)
       .send({
         employeeName: 'Divine Manzi Updated',
-        nationalID: '2782382848238284',
-        phoneNumber: '0781429268',
+        nationalID: '2782382848000000',
+        phoneNumber: '0781000000',
         email: 'divineufitihirwe90@gmail.com',
         dateOfBirth: '01.01.2000',
         status: 'active',
